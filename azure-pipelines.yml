@@ -53,6 +53,6 @@ steps:
     configuration: 'Release'
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.SourcesDirectory)'
+    PathtoPublish: '$(Build.SourcesDirectory)/QuickApp/bin/Debug/net6.0'
     ArtifactName: 'wwwroot'
     publishLocation: 'Container'
