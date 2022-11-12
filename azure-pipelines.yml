@@ -51,3 +51,8 @@ steps:
     command: 'publish'
     publishWebProjects: true
     configuration: 'Release'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)'
+    ArtifactName: 'wwwroot'
+    publishLocation: 'Container'
