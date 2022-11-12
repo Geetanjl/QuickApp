@@ -14,7 +14,7 @@ steps:
   displayName: 'node install'
   inputs:
     versionSource: 'spec'
-    versionSpec:
+    versionSpec: 14.x
 - task: Npm@1
   displayName: 'npm install'
   inputs:
