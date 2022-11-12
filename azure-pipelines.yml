@@ -52,7 +52,26 @@ steps:
     publishWebProjects: true
     configuration: 'Release'
 - task: PublishBuildArtifacts@1
+  displayName: 'backend publish'
   inputs:
     PathtoPublish: '$(Build.SourcesDirectory)/QuickApp/bin/Debug/net6.0'
-    ArtifactName: 'wwwroot'
+    ArtifactName: 'Backend'
     publishLocation: 'Container'
+- task: PublishBuildArtifacts@1
+  displayName: 'frontend publish'
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/QuickApp/ClientApp/dist'
+    ArtifactName: 'Frontend'
+    publishLocation: 'Container'
+- task: DownloadBuildArtifacts@1
+  inputs:
+    buildType: 'current'
+    downloadType: 'single'
+    artifactName: 'Backend'
+    downloadPath: '$(System.ArtifactsDirectory)'
+- task: DownloadBuildArtifacts@1
+  inputs:
+    buildType: 'current'
+    downloadType: 'single'
+    artifactName: 'Frontend'
+    downloadPath: '$(System.ArtifactsDirectory)'
